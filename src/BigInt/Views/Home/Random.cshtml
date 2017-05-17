@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Random Number Generator";
+    ViewData["Description"] = @"Uses <a href=""https://en.wikipedia.org/wiki/Xorshift"">xorshift+ algorithm</a> to generate a random big integer";
+}
+
+<form asp-controller="Calculator" method="post">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="fit">Number of bits:</td>
+                <td><input name="BitCount" type="text" size="50" value="@ViewBag.BitCount" /></td>
+            </tr>
+            <tr>
+                <td class="fit">&nbsp;</td>
+                <td><input type="submit" value="Generate" formaction="DoRandom" /></td>
+            </tr>
+            <tr>
+                <td class="fit">Dec number:</td>
+                <td><textarea rows="4" cols="50" readonly class="readonly">@ViewBag.DecNumber</textarea></td>
+            </tr>
+            <tr>
+                <td class="fit">Hex number:</td>
+                <td><textarea rows="4" cols="50" readonly class="readonly">@ViewBag.HexNumber</textarea></td>
+            </tr>
+            <tr>
+                <td class="fit">&nbsp;</td>
+                <td><p style="visibility: @ViewBag.ResultVisibility;">This number has @ViewBag.BitCount bits</p></td>
+            </tr>
+        </tbody>
+    </table>
+</form>

@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Decimal to Hexadecimal Converter";
+    ViewData["Description"] = "Converts big integer to hex string";
+}
+
+<form asp-controller="Calculator" method="post">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="fit">Dec number:</td>
+                <td><textarea name="Input" rows="4" cols="50">@ViewBag.Input</textarea></td>
+            </tr>
+            <tr>
+                <td class="fit">&nbsp;</td>
+                <td><input type="submit" value="Convert" formaction="DoDecToHex" /></td>
+            </tr>
+            <tr>
+                <td class="fit">Hex number:</td>
+                <td><textarea rows="4" cols="50" readonly class="readonly">@ViewBag.Result</textarea></td>
+            </tr>
+            <tr>
+                <td class="fit">&nbsp;</td>
+                <td><p style="visibility: @ViewBag.ResultVisibility;">This number has @ViewBag.BitCount bit(s)</p></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
